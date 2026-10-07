@@ -16,7 +16,7 @@ export default function App() {
     useEffect(() => {
         async function fetchInsults(): Promise<void> {
             const rawInsults = await fetch('https://evilinsult.com/generate_insult.php');
-            const result: Insult[] = await rawInsults.json();
+            const {result}: {result: Insult[]} = await rawInsults.json();
 
             setInsults(result);
         }
